@@ -26,3 +26,7 @@ setopt HIST_VERIFY
 
 export HISTSIZE=1000000
 export SAVEHIST=1000000
+
+bindkey -e
+bindkey '\e\e[C' forward-word
+bindkey '\e\e[D' backward-word
