@@ -1,3 +1,5 @@
+#!/bin/bash
+
 if test -f "$PWD/.lock"; then
   echo "Lock file present - Setup has already been ran"
   exit 0
