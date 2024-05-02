@@ -1,0 +1,5 @@
+ffmpeg
+jq
+zoxide
+fzf
+zsh-autosuggestions

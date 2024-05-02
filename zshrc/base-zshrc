@@ -12,6 +12,7 @@ plugins=(git docker)
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.zsh/prompt.zsh
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 setopt BANG_HIST
 setopt INC_APPEND_HISTORY
@@ -27,6 +28,11 @@ setopt HIST_VERIFY
 export HISTSIZE=1000000
 export SAVEHIST=1000000
 
+export HOMEBREW_AUTO_UPDATE_SECS=86400
+export HOMEBREW_NO_INSTALL_CLEANUP="true"
+
 bindkey -e
 bindkey '\e\e[C' forward-word
 bindkey '\e\e[D' backward-word
+
+eval "$(zoxide init zsh --cmd cd)"
