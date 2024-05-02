@@ -12,6 +12,7 @@ plugins=(git docker)
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.zsh/prompt.zsh
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 setopt BANG_HIST
 setopt INC_APPEND_HISTORY
