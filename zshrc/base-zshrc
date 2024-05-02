@@ -27,6 +27,9 @@ setopt HIST_VERIFY
 export HISTSIZE=1000000
 export SAVEHIST=1000000
 
+export HOMEBREW_AUTO_UPDATE_SECS=86400
+export HOMEBREW_NO_INSTALL_CLEANUP="true"
+
 bindkey -e
 bindkey '\e\e[C' forward-word
 bindkey '\e\e[D' backward-word
