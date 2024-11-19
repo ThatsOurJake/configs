@@ -1,5 +1,9 @@
 NEWLINE='\n'
 
+host_name() {
+  echo "%B%F{146}[$(hostname)]%f%b "
+}
+
 current_branch() {
   echo $(git branch | grep '* ' | sed 's/* //')
 }
@@ -40,7 +44,7 @@ prompt_mode() {
 }
 
 prompt_left() {
-  echo "$(prompt_dir)$(prompt_git)$(prompt_mode $1)$NEWLINE $(prompt_rainbow_arrow) "
+  echo "$(host_name)$(prompt_dir)$(prompt_git)$(prompt_mode $1)$NEWLINE $(prompt_rainbow_arrow) "
 }
 
 precmd() {
