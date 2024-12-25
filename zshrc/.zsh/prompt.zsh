@@ -9,7 +9,8 @@ prompt_dir() {
   then
     echo "~"
   else
-    basename=$(pwd | xargs basename | sed 's/^\///')
+    current_dir=$(pwd)
+    basename=$(basename "$current_dir" | sed 's/^\///')
     parent_path=$(cd .. && pwd | sed 's/\/$//' | sed 's,^'"$HOME"',~,')
     echo "%F{008}$parent_path%f/$basename"
   fi
