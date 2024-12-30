@@ -5,7 +5,20 @@ host_name() {
 }
 
 current_branch() {
-  echo $(git branch | grep '* ' | sed 's/* //')
+  BRANCH=$(git branch | grep '* ' | sed 's/* //')
+  COMMIT_COUNT=$(git rev-list --left-right --count origin/$BRANCH...$BRANCH)
+  BEHIND_COUNT=$(echo $COMMIT_COUNT | awk '{print $1}')
+  AHEAD_COUNT=$(echo $COMMIT_COUNT | awk '{print $2}')
+
+  if [[ $BEHIND_COUNT -gt 0 && $AHEAD_COUNT -gt 0 ]]; then
+    echo "$BRANCH %F{red}↓$BEHIND_COUNT %F{green}↑$AHEAD_COUNT%f"
+  elif [[ $BEHIND_COUNT -gt 0 ]]; then
+    echo "$BRANCH %F{red}↓$BEHIND_COUNT%f"
+  elif [[ $AHEAD_COUNT -gt 0 ]]; then
+    echo "$BRANCH %F{green}↑$AHEAD_COUNT%f"
+  else
+    echo "$BRANCH"
+  fi
 }
 
 prompt_dir() {
