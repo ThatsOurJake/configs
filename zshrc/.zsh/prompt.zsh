@@ -6,6 +6,13 @@ host_name() {
 
 current_branch() {
   BRANCH=$(git branch | grep '* ' | sed 's/* //')
+  HAS_REMOTE=$(git branch -r | grep -E "origin/$BRANCH")
+
+  if [[ -z $HAS_REMOTE ]]; then
+    echo "$BRANCH"
+    return
+  fi
+
   COMMIT_COUNT=$(git rev-list --left-right --count origin/$BRANCH...$BRANCH)
   BEHIND_COUNT=$(echo $COMMIT_COUNT | awk '{print $1}')
   AHEAD_COUNT=$(echo $COMMIT_COUNT | awk '{print $2}')
