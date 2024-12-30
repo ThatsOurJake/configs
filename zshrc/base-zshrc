@@ -25,7 +25,7 @@ setopt HIST_SAVE_NO_DUPS
 setopt HIST_REDUCE_BLANKS
 setopt HIST_VERIFY
 
-alias gtidy='git branch --merged >/tmp/merged-branches && \
+alias gtidy='git branch >/tmp/merged-branches && \
   vi /tmp/merged-branches && xargs git branch -d </tmp/merged-branches'
 
 export HISTSIZE=1000000
