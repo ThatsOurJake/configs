@@ -25,10 +25,8 @@ setopt HIST_SAVE_NO_DUPS
 setopt HIST_REDUCE_BLANKS
 setopt HIST_VERIFY
 
-alias gtidy='git branch >/tmp/merged-branches && \
-  vi /tmp/merged-branches && xargs git branch -d </tmp/merged-branches'
-
-alias gcm="git checkout $(git remote show origin | sed -n '/HEAD branch/s/.*: //p')"
+alias gtidy="$HOME/.zsh/gtidy.sh"
+alias gcd="$HOME/.zsh/gcd.sh"
 
 export HISTSIZE=1000000
 export SAVEHIST=1000000
