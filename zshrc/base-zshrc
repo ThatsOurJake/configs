@@ -27,6 +27,7 @@ setopt HIST_VERIFY
 
 alias gtidy="$HOME/.zsh/gtidy.sh"
 alias gcd="$HOME/.zsh/gcd.sh"
+alias ph="$HOME/.zsh/purge-history.sh"
 
 export HISTSIZE=1000000
 export SAVEHIST=1000000
