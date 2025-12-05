@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Usage: gtidy
 
 # Check if whiptail is installed
