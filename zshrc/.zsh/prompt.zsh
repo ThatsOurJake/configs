@@ -4,6 +4,12 @@ host_name() {
     echo "%B%F{146}[$(hostname)]%f%b "
 }
 
+py_virtual_env() {
+    if [ ! -z ${VIRTUAL_ENV_PROMPT+x} ]; then
+        echo "%F{214}$VIRTUAL_ENV_PROMPT%f"
+    fi
+}
+
 git_current_branch() {
     BRANCH=$(git branch | grep '* ' | sed 's/* //')
     HAS_REMOTE=$(git branch -r | grep -E "origin/$BRANCH")
@@ -65,7 +71,7 @@ prompt_mode() {
 }
 
 prompt_left() {
-    echo "$(host_name)$(prompt_dir)$(prompt_git)$(prompt_mode $1)$NEWLINE $(prompt_rainbow_arrow) "
+    echo "$(host_name)$(py_virtual_env)$(prompt_dir)$(prompt_git)$(prompt_mode $1)$NEWLINE $(prompt_rainbow_arrow) "
 }
 
 precmd() {
